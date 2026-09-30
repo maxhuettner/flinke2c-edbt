@@ -2,3 +2,6 @@
 	path = flinke2c
 	url = git@github.com:maxhuettner/flinke2c.git
 	branch = flinke2c
+[submodule "streaming_tcp_harness"]
+	path = streaming_tcp_harness
+	url = git@github.com:maxhuettner/streaming_tcp_harness.git
