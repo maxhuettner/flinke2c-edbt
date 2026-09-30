@@ -1,0 +1,4 @@
+[submodule "flinke2c"]
+	path = flinke2c
+	url = git@github.com:maxhuettner/flinke2c.git
+	branch = flinke2c
