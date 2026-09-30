@@ -5,3 +5,6 @@
 [submodule "streaming_tcp_harness"]
 	path = streaming_tcp_harness
 	url = git@github.com:maxhuettner/streaming_tcp_harness.git
+[submodule "flinke2c_experiment_scripts"]
+	path = flinke2c_experiment_scripts
+	url = git@github.com:maxhuettner/flinke2c_experiment_scripts.git
