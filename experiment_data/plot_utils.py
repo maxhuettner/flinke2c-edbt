@@ -30,7 +30,16 @@ def imputation_perf_plot(
         percentage: bool = True,
         grouped: bool = True,
 ):
-    """Stacked bars of GPU imputation stage timings from the CSV in path/name."""
+    """Plot GPU imputation pipeline timing as horizontal stacked bars.
+
+    The input ``name`` identifies a folder under ``path`` containing one CSV
+    file, for example ``imputation_perf_plot("q1i_direct_gpu")``.
+    With ``average=True`` (the default), one bar shows the mean across runs.
+    With ``average=False``, one bar is shown for each repetition.
+    With ``percentage=True`` (the default), each bar is normalized to 100%.
+    With ``grouped=True`` (the default), percentage bars retain every stage
+    while annotating the aggregate ``Flink`` and ``GPU`` sections.
+    """
     exp_path = Path(path) / name
     csv_paths = sorted(exp_path.glob("*.csv"))
     if len(csv_paths) != 1:
@@ -238,7 +247,11 @@ def rdma_gpu_perf_plot(
         percentage: bool = True,
         grouped: bool = True,
 ):
-    """Plot RDMA/Flink and GPU timings together (RDMA pre+post summed per repetition)."""
+    """Plot paired RDMA/Flink and GPU server performance files together.
+
+    The split RDMA pre/post rows are summed per repetition before being
+    aligned with the one GPU row for that repetition.
+    """
     exp_path = Path(path) / name
     rdma_pre_path = exp_path / "rdma_perf_pre.csv"
     rdma_post_path = exp_path / "rdma_perf_post.csv"

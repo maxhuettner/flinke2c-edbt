@@ -24,7 +24,23 @@ def gen_ecdf_data(
     clip_percentile: float | None = None,
     marker_percentiles: list[float] | None = None,
 ):
-    """Write ECDF CSVs (one per exp_key/exp_name) and the pgfplots code."""
+    """
+    Generate ECDF data for pgfplots visualization.
+    
+    Args:
+        df: DataFrame containing the data with 'exp_name' and 'value' columns.
+            If present, 'exp_key' will be used for output filenames.
+        file_name: Base name for the output CSV files
+        x_label: Label for x-axis
+        legend_strip: List of substrings to remove from legend entries
+        max_points: Cap points per series by quantile downsampling
+        tail_focus: Quantile where tail sampling starts (e.g., 0.99)
+        tail_share: Fraction of points dedicated to [tail_focus, 1]
+        keep_quantiles: Additional quantiles to force include (values in [0, 1] or [0, 100])
+        uniform: If True, use uniform quantile spacing across [0, 1]
+        clip_percentile: If set, cap output to this percentile (values in [0, 100])
+        marker_percentiles: If set, emit small CSVs with vertical lines for these percentiles
+    """
     def _safe_key(value: str) -> str:
         return re.sub(r"[^A-Za-z0-9_-]+", "_", str(value)).strip("_")
 
@@ -81,6 +97,7 @@ def gen_ecdf_data(
 
     group_key = "exp_key" if "exp_key" in df.columns and df["exp_key"].notna().any() else "exp_name"
     for key_name, group in df.groupby(group_key):
+        # Sort values for ECDF
         sorted_values = np.sort(group["value"].to_numpy())
         marker_qs = _normalize_quantiles(marker_percentiles) if marker_percentiles else []
         if max_points is not None and len(sorted_values) > max_points:
@@ -99,16 +116,19 @@ def gen_ecdf_data(
             x_vals = sorted_values
             y_vals = np.arange(1, len(sorted_values) + 1) / len(sorted_values)
         
-        # step function, starting at y=0
+        # Create step-like pattern
         x_step = []
         y_step = []
         
+        # Add starting point at y=0
         x_step.append(x_vals[0])
         y_step.append(0)
         
         for i in range(len(x_vals)):
+            # Add point for current step
             x_step.append(x_vals[i])
             y_step.append(y_vals[i])
+            # Add point for next x value with same y (horizontal step)
             if i < len(x_vals) - 1:
                 x_step.append(x_vals[i+1])
                 y_step.append(y_vals[i])
@@ -145,29 +165,43 @@ def gen_ecdf_data(
                     index=False,
                 )
     
+    # Generate PGFPlots code
     gen_pgfplots_code(file_name, x_label, output_suffix=output_suffix, plot_type=PlotType.ECDF, legend_strip=legend_strip)
 
 
 def gen_kde_data(df: pd.DataFrame, file_name: str, x_label: str = "Throughput (tps)", legend_strip: list[str] = None):
-    """Write KDE CSVs per experiment and the pgfplots code."""
+    """
+    Generate KDE data for pgfplots visualization.
+    
+    Args:
+        df: DataFrame containing the data with 'exp_name' and 'value' columns.
+            If present, 'exp_key' will be used for output filenames.
+        file_name: Base name for the output CSV files
+        x_label: Label for x-axis
+        legend_strip: List of substrings to remove from legend entries
+    """
     def _safe_key(value: str) -> str:
         return re.sub(r"[^A-Za-z0-9_-]+", "_", str(value)).strip("_")
 
     for name, group in df.groupby("exp_name"):
+        # Get values for KDE
         values = group["value"].values
         
+        # Skip if there's only one data point
         if len(values) <= 1:
             print(f"Warning: Skipping KDE for {name} as it has only {len(values)} data point(s)")
             continue
         
+        # Create a range of x values for the KDE
         x_min = values.min()
         x_max = values.max()
         x = np.linspace(x_min, x_max, 1000)
         
+        # Calculate KDE
         kde = stats.gaussian_kde(values, bw_method=0.5)
         y = kde(x)
         
-        # curve starts and ends at 0
+        # Ensure the curve starts and ends at 0
         y[0] = 0
         y[-1] = 0
         
@@ -191,6 +225,7 @@ def gen_kde_data(df: pd.DataFrame, file_name: str, x_label: str = "Throughput (t
         kde_df = pd.DataFrame(records)
         kde_df.to_csv(f"plot_data/{file_name}_{key}_kde.csv", index=False)
     
+    # Generate PGFPlots code
     gen_pgfplots_code(file_name, x_label, plot_type=PlotType.KDE, legend_strip=legend_strip)
 
 
@@ -202,13 +237,24 @@ class PlotType(Enum):
 def gen_pgfplots_code(file_name: str, x_label: str, output_suffix: str = "",
                       width: str = "\\linewidth", height: str = "0.6\\linewidth",
                       plot_type: PlotType = PlotType.ECDF, legend_strip: list[str] = None):
-    """Write pgfplots code for the ECDF/KDE CSVs of file_name."""
+    """
+    Generate pgfplots code for visualization.
+    
+    Args:
+        file_name: Base name of the CSV files
+        x_label: Label for x-axis
+        width: Width of the plot
+        height: Height of the plot
+        plot_type: Type of plot (ECDF or KDE)
+        legend_strip: List of substrings to remove from legend entries
+    """
     match plot_type:
         case PlotType.ECDF:
             y_label = "Cumulative Probability"
         case PlotType.KDE:
             y_label = "Density"
 
+    # Find all matching CSV files
     folder_suffix = f"_{output_suffix}" if output_suffix else ""
     plot_data_dir = f"plot_data{folder_suffix}"
     plot_code_dir = f"plot_code{folder_suffix}"
@@ -227,13 +273,14 @@ def gen_pgfplots_code(file_name: str, x_label: str, output_suffix: str = "",
     if not matching_files:
         raise ValueError(f"No valid data files found for {file_name} with type {plot_type.value}")
     
+    # Define line styles and fill patterns for the plots
     line_styles = ['solid', 'dashed', 'dotted', 'dashdotted', 'densely dashed', 'densely dotted', 
                   'loosely dashed', 'loosely dotted', 'loosely dashdotted', 'densely dashdotted']
     fill_patterns = ['north east lines', 'north west lines', 'crosshatch', 'crosshatch dots',
                     'horizontal lines', 'vertical lines', 'grid', 'dots',
                     'bricks', 'checkerboard']
     
-    # KDE: ymax from all files
+    # For KDE plots, find the maximum y value across all files
     ymax = 1.0  # Default for ECDF
     ymin = 0.0  # Default for ECDF
     if plot_type == PlotType.KDE:
@@ -245,6 +292,7 @@ def gen_pgfplots_code(file_name: str, x_label: str, output_suffix: str = "",
             min_y = min(min_y, df["kde"].min())
         ymax = max_y * 1.1  # Add 10% padding
 
+    # Regular plot
     code = f"""\\begin{{tikzpicture}}
 % Define colors
 \\definecolor{{color1}}{{RGB}}{{31,119,180}}
@@ -276,7 +324,7 @@ def gen_pgfplots_code(file_name: str, x_label: str, output_suffix: str = "",
     scaled x ticks=false"""
     code += "\n]\n\n"
 
-    # order as in exp_name_mapping
+    # Sort files according to exp_name_mapping order
     file_order = {key: i for i, key in enumerate(exp_name_mapping.keys())}
     def _sort_key(csv_name: str) -> tuple[int, int | float, str]:
         key = csv_name[len(file_name) + 1:-len(suffix)]
@@ -286,6 +334,7 @@ def gen_pgfplots_code(file_name: str, x_label: str, output_suffix: str = "",
 
     matching_files.sort(key=_sort_key)
 
+    # Add plots
     for i, csv_file in enumerate(matching_files):
         key = csv_file[len(file_name) + 1:-len(suffix)]
         color_name = f"color{i+1}"
@@ -330,7 +379,21 @@ def gen_event_line_data(
         output_suffix: str = "",
         use_smoothed: bool = False
 ) -> list[dict[str, str]]:
-    """Write one line CSV per experiment/repetition, returns path and label metadata."""
+    """Generate per-repetition CSV data suitable for pgfplots line plots.
+
+    Args:
+        df: DataFrame containing `exp_name`, `repetition`, `index`, and
+            either `value` or `value_smoothed` columns. Optional columns
+            `exp_name_tex`/`repetition_tex` improve legend handling.
+        file_name: Base name for the output CSV files.
+        output_suffix: Optional suffix that selects `plot_data_<suffix>`.
+        use_smoothed: When True, prefer the `value_smoothed` column if present.
+
+    Returns:
+        A list of metadata dicts with the csv `path`, original `exp_name`,
+        `repetition`, and TeX-ready labels for convenience when
+        constructing pgfplots commands.
+    """
 
     if df.empty:
         return []
@@ -1093,8 +1156,19 @@ def gen_latency_table_data(
 ) -> str:
     """Generate latency summary table CSV grouped by query/system.
 
-    aggregation: "pooled" (all samples per system) or "mean_of_repetitions".
-    Columns: (Query), (System), (Environment, p50|p99|delta_best).
+    This is intended for raw per-event latency samples where lower is better.
+    Input should typically come from
+    ``prepare_sink_latency_distribution_data(..., per_repetition=True)``.
+
+    By default, metrics are computed in ``pooled`` mode, i.e. from the full
+    pooled latency distribution per system. That matches the semantics used by
+    ECDF plots and ``groupby(...).quantile(...)`` on the flattened data.
+    ``mean_of_repetitions`` is also available when you explicitly want to first
+    compute per-repetition summaries and then average those summaries.
+
+    Output columns are multi-level:
+      - (Query, ""), (System, "")
+      - (Environment, metric) where metric is one of: p50, p99, delta_best
     """
     summary_mode = {"exp_name", "p50", "p99"}.issubset(df.columns)
     if not summary_mode:

@@ -998,6 +998,7 @@ def _prepare_event_series(
     rep: Mapping[str, Any],
     smooth_window: int | None = None,
     discard_first_and_last_event_tput: bool = True,
+    trim_trailing_below_fraction: float | None = None,
 ) -> tuple[np.ndarray, np.ndarray, float]:
     event_tput = rep.get("event_throughput", [])
     event_times = rep.get("event_throughput_time")
@@ -1009,6 +1010,15 @@ def _prepare_event_series(
         y_values = np.array(event_tput, dtype=float)
         x_values = np.arange(len(y_values), dtype=float)
         step = 1.0
+
+    if trim_trailing_below_fraction is not None and len(y_values) > 0:
+        # Drop the post-run drain (trailing zeros / straggler bins) so the run ends at its
+        # last partial bin, which discard_first_and_last_event_tput then removes.
+        threshold = float(np.nanmax(y_values)) * trim_trailing_below_fraction
+        above = np.flatnonzero(y_values > threshold)
+        end = int(above[-1]) + 1 if len(above) else 0
+        x_values = x_values[:end]
+        y_values = y_values[:end]
 
     if smooth_window is not None and smooth_window > 1 and len(y_values) > 0:
         series = pd.Series(y_values, dtype=float)
@@ -1752,7 +1762,16 @@ def prepare_nebula_event_throughput_mean_ci_data(
         smooth_window: int | None = None,
         discard_first_and_last_event_tput: bool = True,
         ci: float = 0.95,
+        trim_trailing_below_fraction: float | None = None,
+        end_at_first_rep_end: bool = False,
 ) -> DataFrame:
+    """Mean/CI event throughput over repetitions.
+
+    trim_trailing_below_fraction: per repetition, drop trailing bins below this
+        fraction of the repetition's peak (end-of-input drain, not system behavior).
+    end_at_first_rep_end: stop each experiment's line where its first repetition
+        ends, so the tail is not averaged over a shrinking set of repetitions.
+    """
     plot_data: list[dict[str, Any]] = []
 
     for exp_name, info in exp_data.items():
@@ -1767,6 +1786,7 @@ def prepare_nebula_event_throughput_mean_ci_data(
                 rep,
                 smooth_window=smooth_window,
                 discard_first_and_last_event_tput=discard_first_and_last_event_tput,
+                trim_trailing_below_fraction=trim_trailing_below_fraction,
             )
             if len(x_values) == 0 or len(y_values) == 0:
                 continue
@@ -1793,6 +1813,9 @@ def prepare_nebula_event_throughput_mean_ci_data(
 
         if max_idx < 0 or not per_rep_values:
             continue
+
+        if end_at_first_rep_end:
+            max_idx = min(int(series.index.max()) for series in per_rep_values)
 
         for idx in range(0, max_idx + 1):
             values = [series.get(idx, np.nan) for series in per_rep_values]
@@ -1999,7 +2022,13 @@ def prepare_grouped_boxplot_summary(
         value_col: str = "value",
         key_col: str | None = "exp_key",
 ) -> DataFrame:
-    """Compute boxplot stats from an already prepared DataFrame (e.g. per-repetition throughput)."""
+    """Compute boxplot stats from an existing grouped DataFrame.
+
+    This is useful when the input DataFrame already represents the metric you
+    want to summarize, e.g. repetition-level throughput from
+    ``prepare_exp_data(..., "throughput")``. It avoids re-reading raw metric
+    files that may represent a different signal.
+    """
     required = {group_col, value_col}
     missing = required - set(df.columns)
     if missing:
@@ -2149,7 +2178,13 @@ def prepare_sink_latency_summary_data(
         aggregation: str = "pooled",
         quantile: float = 0.99,
 ) -> DataFrame:
-    """Latency summaries computed one experiment at a time, to keep memory low."""
+    """Compute low-memory latency summaries without materializing all samples.
+
+    Intended for table generation where only a few summary statistics are
+    needed. Unlike ``prepare_sink_latency_distribution_data``, this processes
+    one experiment at a time and discards raw arrays after computing the
+    requested aggregates, avoiding a giant all-experiments DataFrame.
+    """
     base_dir = Path(base_path)
     exp_paths = {exp_path.name: exp_path for exp_path in base_dir.iterdir() if exp_path.is_dir()}
 
