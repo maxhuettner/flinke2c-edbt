@@ -14,3 +14,6 @@
 [submodule "flinke2c_runtime"]
 	path = flinke2c_runtime
 	url = https://github.com/maxhuettner/flinke2c-runtime.git
+[submodule "streaming_exp_management"]
+	path = streaming_exp_management
+	url = https://github.com/maxhuettner/streaming-exp-management.git
