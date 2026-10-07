@@ -8,9 +8,6 @@
 [submodule "flinke2c_experiment_scripts"]
 	path = flinke2c_experiment_scripts
 	url = https://github.com/maxhuettner/flinke2c_experiment_scripts.git
-[submodule "network_sim"]
-	path = network_sim
-	url = https://github.com/maxhuettner/network_sim.git
 [submodule "flinke2c_runtime"]
 	path = flinke2c_runtime
 	url = https://github.com/maxhuettner/flinke2c-runtime.git
