@@ -1,16 +1,16 @@
 [submodule "flinke2c"]
 	path = flinke2c
-	url = git@github.com:maxhuettner/flinke2c.git
+	url = https://github.com/maxhuettner/flinke2c.git
 	branch = flinke2c
 [submodule "streaming_tcp_harness"]
 	path = streaming_tcp_harness
-	url = git@github.com:maxhuettner/streaming_tcp_harness.git
+	url = https://github.com/maxhuettner/streaming_tcp_harness.git
 [submodule "flinke2c_experiment_scripts"]
 	path = flinke2c_experiment_scripts
-	url = git@github.com:maxhuettner/flinke2c_experiment_scripts.git
+	url = https://github.com/maxhuettner/flinke2c_experiment_scripts.git
 [submodule "network_sim"]
 	path = network_sim
-	url = git@github.com:maxhuettner/network_sim.git
+	url = https://github.com/maxhuettner/network_sim.git
 [submodule "flinke2c_runtime"]
 	path = flinke2c_runtime
-	url = git@github.com:maxhuettner/flinke2c-runtime.git
+	url = https://github.com/maxhuettner/flinke2c-runtime.git
