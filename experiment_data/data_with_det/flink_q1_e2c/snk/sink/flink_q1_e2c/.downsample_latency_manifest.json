@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "files": {
+    "latency_flink_q1_e2c_0.parquet": {
+      "size_bytes": 1140532,
+      "mtime_ns": 1790256847393400062,
+      "updated_at": "2026-09-24T13:34:07.395431+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1140532,
+      "fraction_used": 0.1,
+      "p999_after": 493345375.13,
+      "p999_rel_error": 3.1622419985282645e-05
+    },
+    "latency_flink_q1_e2c_1.parquet": {
+      "size_bytes": 2109929,
+      "mtime_ns": 1790256847439937289,
+      "updated_at": "2026-09-24T13:34:07.442249+00:00",
+      "status": "written",
+      "rows_after": 184000,
+      "bytes_after": 2109929,
+      "fraction_used": 0.1,
+      "p999_after": 440251040.55993533,
+      "p999_rel_error": 5.49631633069838e-05
+    },
+    "latency_flink_q1_e2c_2.parquet": {
+      "size_bytes": 1114164,
+      "mtime_ns": 1790256847467223924,
+      "updated_at": "2026-09-24T13:34:07.471235+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1114164,
+      "fraction_used": 0.1,
+      "p999_after": 174586650.96000007,
+      "p999_rel_error": 8.617438573163044e-05
+    },
+    "latency_flink_q1_e2c_3.parquet": {
+      "size_bytes": 1130080,
+      "mtime_ns": 1790256847493588060,
+      "updated_at": "2026-09-24T13:34:07.494809+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1130080,
+      "fraction_used": 0.1,
+      "p999_after": 154551900.099,
+      "p999_rel_error": 0.0214382885135546
+    },
+    "latency_flink_q1_e2c_4.parquet": {
+      "size_bytes": 1153804,
+      "mtime_ns": 1790256847520718945,
+      "updated_at": "2026-09-24T13:34:07.521912+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1153804,
+      "fraction_used": 0.1,
+      "p999_after": 286334137.8160001,
+      "p999_rel_error": 5.4678342344328484e-05
+    },
+    "latency_flink_q1_e2c_5.parquet": {
+      "size_bytes": 1170221,
+      "mtime_ns": 1790256847546132372,
+      "updated_at": "2026-09-24T13:34:07.547341+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1170221,
+      "fraction_used": 0.1,
+      "p999_after": 341803043.55300003,
+      "p999_rel_error": 0.02987745891067217
+    },
+    "latency_flink_q1_e2c_6.parquet": {
+      "size_bytes": 1156971,
+      "mtime_ns": 1790256847571776757,
+      "updated_at": "2026-09-24T13:34:07.574415+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1156971,
+      "fraction_used": 0.1,
+      "p999_after": 239367083.29300004,
+      "p999_rel_error": 0.027677112217485575
+    },
+    "latency_flink_q1_e2c_7.parquet": {
+      "size_bytes": 1142414,
+      "mtime_ns": 1790256847598768226,
+      "updated_at": "2026-09-24T13:34:07.599956+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1142414,
+      "fraction_used": 0.1,
+      "p999_after": 231913649.06700003,
+      "p999_rel_error": 0.010631490604505297
+    },
+    "latency_flink_q1_e2c_8.parquet": {
+      "size_bytes": 1132122,
+      "mtime_ns": 1790256847623060569,
+      "updated_at": "2026-09-24T13:34:07.624663+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1132122,
+      "fraction_used": 0.1,
+      "p999_after": 172195916.337,
+      "p999_rel_error": 0.005774728770036363
+    },
+    "latency_flink_q1_e2c_9.parquet": {
+      "size_bytes": 1124352,
+      "mtime_ns": 1790256847647900162,
+      "updated_at": "2026-09-24T13:34:07.649303+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1124352,
+      "fraction_used": 0.1,
+      "p999_after": 221134203.94200003,
+      "p999_rel_error": 0.0002594953960905804
+    }
+  }
+}

@@ -1,0 +1,3 @@
+x,ecdf,key,label,percentile
+47.03854199999998,0.0,flinke2c_rudf_q1i10,FlinkE2C\\(Rust UDF),99.0
+47.03854199999998,1.0,flinke2c_rudf_q1i10,FlinkE2C\\(Rust UDF),99.0

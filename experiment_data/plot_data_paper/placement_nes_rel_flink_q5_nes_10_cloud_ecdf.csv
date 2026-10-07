@@ -1,0 +1,9 @@
+x,ecdf,key,label
+0.5900721392854291,0.0,flink_q5_nes_10_cloud,flink_q5_nes_10_cloud
+0.5900721392854291,0.25,flink_q5_nes_10_cloud,flink_q5_nes_10_cloud
+0.832647529005017,0.25,flink_q5_nes_10_cloud,flink_q5_nes_10_cloud
+0.832647529005017,0.5,flink_q5_nes_10_cloud,flink_q5_nes_10_cloud
+0.8662805069052738,0.5,flink_q5_nes_10_cloud,flink_q5_nes_10_cloud
+0.8662805069052738,0.75,flink_q5_nes_10_cloud,flink_q5_nes_10_cloud
+1.0,0.75,flink_q5_nes_10_cloud,flink_q5_nes_10_cloud
+1.0,1.0,flink_q5_nes_10_cloud,flink_q5_nes_10_cloud

@@ -1,0 +1,33 @@
+# You can set the hostname of docker host by using this command `sudo hostname <name>`
+version: "3"
+services:
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - main
+      - node-manager-net
+
+  nodeManager:
+    image: maxhue/node-manager
+    environment:
+      - EXECUTION=flink
+      - HOST_LOG_PATH=$HOME/logs
+      # update experiment: starts OPERATOR_UPDATE_NAME's container OPERATOR_UPDATE_TIMEOUT s after deployment, disabled by default
+      #   OPERATOR_UPDATE_NAME=price-greater-than-updated OPERATOR_UPDATE_TIMEOUT=10 docker-compose up -d
+      - OPERATOR_UPDATE_NAME=${OPERATOR_UPDATE_NAME:-}
+      - OPERATOR_UPDATE_TIMEOUT=${OPERATOR_UPDATE_TIMEOUT:-0}
+    ports:
+      - 25003:25003
+    networks:
+      - main
+      - node-manager-net
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./../operators:/app/operators
+
+networks:
+  main:
+  node-manager-net:
+    external: true

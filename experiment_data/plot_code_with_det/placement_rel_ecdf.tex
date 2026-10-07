@@ -1,0 +1,287 @@
+\begin{tikzpicture}
+% Define colors
+\definecolor{color1}{RGB}{31,119,180}
+\definecolor{color2}{RGB}{255,127,14}
+\definecolor{color3}{RGB}{44,160,44}
+\definecolor{color4}{RGB}{214,39,40}
+\definecolor{color5}{RGB}{148,103,189}
+\definecolor{color6}{RGB}{140,86,75}
+\definecolor{color7}{RGB}{227,119,194}
+\definecolor{color8}{RGB}{127,127,127}
+\definecolor{color9}{RGB}{188,189,34}
+\definecolor{color10}{RGB}{23,190,207}
+
+\begin{axis}[
+    width=\linewidth,
+    height=0.6\linewidth,
+    xlabel={Relative Throughput},
+    ylabel={Cumulative Probability},
+    xmin=0,
+    ymin=0.0,
+    ymax=1.0,
+    ymajorgrids=true,
+    xmajorgrids=true,
+    legend pos=north west,
+    legend style={nodes={scale=0.5, transform shape}, legend cell align=left},
+    every axis plot/.append style={very thick},
+    tick label style={/pgf/number format/fixed},
+    x tick label style={/pgf/number format/1000 sep=,},
+    scaled x ticks=false
+]
+
+\addplot[mark=none, color=color1, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q1_cloud_ecdf.csv};
+\addlegendentry{Baseline (Cloud)}
+\addplot[mark=none, color=color2, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q1_e2c_ecdf.csv};
+\addlegendentry{Baseline (Edge-to-Cloud)}
+\addplot[mark=none, color=color3, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q1_cloud_ecdf.csv};
+\addlegendentry{capsys_q1_cloud}
+\addplot[mark=none, color=color4, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q1_e2c_ecdf.csv};
+\addlegendentry{capsys_q1_e2c}
+\addplot[mark=none, color=color5, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q1_eh_ecdf.csv};
+\addlegendentry{capsys_q1_eh}
+\addplot[mark=none, color=color6, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q2_cloud_ecdf.csv};
+\addlegendentry{capsys_q2_cloud}
+\addplot[mark=none, color=color7, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q2_e2c_ecdf.csv};
+\addlegendentry{capsys_q2_e2c}
+\addplot[mark=none, color=color8, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q2_eh_ecdf.csv};
+\addlegendentry{capsys_q2_eh}
+\addplot[mark=none, color=color9, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q3_cloud_ecdf.csv};
+\addlegendentry{capsys_q3_cloud}
+\addplot[mark=none, color=color10, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q3_e2c_ecdf.csv};
+\addlegendentry{capsys_q3_e2c}
+\addplot[mark=none, color=color11, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q3_eh_ecdf.csv};
+\addlegendentry{capsys_q3_eh}
+\addplot[mark=none, color=color12, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q4_cloud_ecdf.csv};
+\addlegendentry{capsys_q4_cloud}
+\addplot[mark=none, color=color13, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q4_e2c_ecdf.csv};
+\addlegendentry{capsys_q4_e2c}
+\addplot[mark=none, color=color14, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q4_eh_ecdf.csv};
+\addlegendentry{capsys_q4_eh}
+\addplot[mark=none, color=color15, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q8_cloud_ecdf.csv};
+\addlegendentry{capsys_q8_cloud}
+\addplot[mark=none, color=color16, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q8_e2c_ecdf.csv};
+\addlegendentry{capsys_q8_e2c}
+\addplot[mark=none, color=color17, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_capsys_q8_eh_ecdf.csv};
+\addlegendentry{capsys_q8_eh}
+\addplot[mark=none, color=color18, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q1_cloud_ecdf.csv};
+\addlegendentry{flink_det_q1_cloud}
+\addplot[mark=none, color=color19, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q1_e2c_ecdf.csv};
+\addlegendentry{flink_det_q1_e2c}
+\addplot[mark=none, color=color20, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q1_eh_ecdf.csv};
+\addlegendentry{flink_det_q1_eh}
+\addplot[mark=none, color=color21, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q1_wan_ecdf.csv};
+\addlegendentry{flink_det_q1_wan}
+\addplot[mark=none, color=color22, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q2_cloud_ecdf.csv};
+\addlegendentry{flink_det_q2_cloud}
+\addplot[mark=none, color=color23, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q2_e2c_ecdf.csv};
+\addlegendentry{flink_det_q2_e2c}
+\addplot[mark=none, color=color24, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q2_eh_ecdf.csv};
+\addlegendentry{flink_det_q2_eh}
+\addplot[mark=none, color=color25, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q2_wan_ecdf.csv};
+\addlegendentry{flink_det_q2_wan}
+\addplot[mark=none, color=color26, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q3_cloud_ecdf.csv};
+\addlegendentry{flink_det_q3_cloud}
+\addplot[mark=none, color=color27, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q3_e2c_ecdf.csv};
+\addlegendentry{flink_det_q3_e2c}
+\addplot[mark=none, color=color28, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q3_eh_ecdf.csv};
+\addlegendentry{flink_det_q3_eh}
+\addplot[mark=none, color=color29, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q3_wan_ecdf.csv};
+\addlegendentry{flink_det_q3_wan}
+\addplot[mark=none, color=color30, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q4_cloud_ecdf.csv};
+\addlegendentry{flink_det_q4_cloud}
+\addplot[mark=none, color=color31, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q4_e2c_ecdf.csv};
+\addlegendentry{flink_det_q4_e2c}
+\addplot[mark=none, color=color32, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q4_eh_ecdf.csv};
+\addlegendentry{flink_det_q4_eh}
+\addplot[mark=none, color=color33, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q4_wan_ecdf.csv};
+\addlegendentry{flink_det_q4_wan}
+\addplot[mark=none, color=color34, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q5_cloud_ecdf.csv};
+\addlegendentry{flink_det_q5_cloud}
+\addplot[mark=none, color=color35, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q5_e2c_ecdf.csv};
+\addlegendentry{flink_det_q5_e2c}
+\addplot[mark=none, color=color36, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q5_eh_ecdf.csv};
+\addlegendentry{flink_det_q5_eh}
+\addplot[mark=none, color=color37, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q5_wan_ecdf.csv};
+\addlegendentry{flink_det_q5_wan}
+\addplot[mark=none, color=color38, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q7_cloud_ecdf.csv};
+\addlegendentry{flink_det_q7_cloud}
+\addplot[mark=none, color=color39, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q7_e2c_ecdf.csv};
+\addlegendentry{flink_det_q7_e2c}
+\addplot[mark=none, color=color40, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q7_eh_ecdf.csv};
+\addlegendentry{flink_det_q7_eh}
+\addplot[mark=none, color=color41, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q7_wan_ecdf.csv};
+\addlegendentry{flink_det_q7_wan}
+\addplot[mark=none, color=color42, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q8_cloud_ecdf.csv};
+\addlegendentry{flink_det_q8_cloud}
+\addplot[mark=none, color=color43, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q8_e2c_ecdf.csv};
+\addlegendentry{flink_det_q8_e2c}
+\addplot[mark=none, color=color44, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q8_eh_ecdf.csv};
+\addlegendentry{flink_det_q8_eh}
+\addplot[mark=none, color=color45, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_det_q8_wan_ecdf.csv};
+\addlegendentry{flink_det_q8_wan}
+\addplot[mark=none, color=color46, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q1_eh_ecdf.csv};
+\addlegendentry{flink_q1_eh}
+\addplot[mark=none, color=color47, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q1_wan_ecdf.csv};
+\addlegendentry{flink_q1_wan}
+\addplot[mark=none, color=color48, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q2_cloud_ecdf.csv};
+\addlegendentry{flink_q2_cloud}
+\addplot[mark=none, color=color49, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q2_e2c_ecdf.csv};
+\addlegendentry{flink_q2_e2c}
+\addplot[mark=none, color=color50, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q2_eh_ecdf.csv};
+\addlegendentry{flink_q2_eh}
+\addplot[mark=none, color=color51, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q2_wan_ecdf.csv};
+\addlegendentry{flink_q2_wan}
+\addplot[mark=none, color=color52, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q3_cloud_ecdf.csv};
+\addlegendentry{flink_q3_cloud}
+\addplot[mark=none, color=color53, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q3_e2c_ecdf.csv};
+\addlegendentry{flink_q3_e2c}
+\addplot[mark=none, color=color54, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q3_eh_ecdf.csv};
+\addlegendentry{flink_q3_eh}
+\addplot[mark=none, color=color55, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q3_wan_ecdf.csv};
+\addlegendentry{flink_q3_wan}
+\addplot[mark=none, color=color56, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q4_cloud_ecdf.csv};
+\addlegendentry{flink_q4_cloud}
+\addplot[mark=none, color=color57, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q4_e2c_ecdf.csv};
+\addlegendentry{flink_q4_e2c}
+\addplot[mark=none, color=color58, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q4_eh_ecdf.csv};
+\addlegendentry{flink_q4_eh}
+\addplot[mark=none, color=color59, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q4_wan_ecdf.csv};
+\addlegendentry{flink_q4_wan}
+\addplot[mark=none, color=color60, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q5_cloud_ecdf.csv};
+\addlegendentry{flink_q5_cloud}
+\addplot[mark=none, color=color61, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q5_e2c_ecdf.csv};
+\addlegendentry{flink_q5_e2c}
+\addplot[mark=none, color=color62, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q5_eh_ecdf.csv};
+\addlegendentry{flink_q5_eh}
+\addplot[mark=none, color=color63, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q5_wan_ecdf.csv};
+\addlegendentry{flink_q5_wan}
+\addplot[mark=none, color=color64, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q7_cloud_ecdf.csv};
+\addlegendentry{flink_q7_cloud}
+\addplot[mark=none, color=color65, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q7_e2c_ecdf.csv};
+\addlegendentry{flink_q7_e2c}
+\addplot[mark=none, color=color66, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q7_eh_ecdf.csv};
+\addlegendentry{flink_q7_eh}
+\addplot[mark=none, color=color67, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q7_wan_ecdf.csv};
+\addlegendentry{flink_q7_wan}
+\addplot[mark=none, color=color68, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q8_cloud_ecdf.csv};
+\addlegendentry{flink_q8_cloud}
+\addplot[mark=none, color=color69, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q8_e2c_ecdf.csv};
+\addlegendentry{flink_q8_e2c}
+\addplot[mark=none, color=color70, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q8_eh_ecdf.csv};
+\addlegendentry{flink_q8_eh}
+\addplot[mark=none, color=color71, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flink_q8_wan_ecdf.csv};
+\addlegendentry{flink_q8_wan}
+\addplot[mark=none, color=color72, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q1_cloud_ecdf.csv};
+\addlegendentry{flinke2c_bu_q1_cloud}
+\addplot[mark=none, color=color73, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q1_e2c_ecdf.csv};
+\addlegendentry{flinke2c_bu_q1_e2c}
+\addplot[mark=none, color=color74, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q1_eh_ecdf.csv};
+\addlegendentry{flinke2c_bu_q1_eh}
+\addplot[mark=none, color=color75, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q1_wan_ecdf.csv};
+\addlegendentry{flinke2c_bu_q1_wan}
+\addplot[mark=none, color=color76, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q2_cloud_ecdf.csv};
+\addlegendentry{flinke2c_bu_q2_cloud}
+\addplot[mark=none, color=color77, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q2_e2c_ecdf.csv};
+\addlegendentry{flinke2c_bu_q2_e2c}
+\addplot[mark=none, color=color78, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q2_eh_ecdf.csv};
+\addlegendentry{flinke2c_bu_q2_eh}
+\addplot[mark=none, color=color79, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q2_wan_ecdf.csv};
+\addlegendentry{flinke2c_bu_q2_wan}
+\addplot[mark=none, color=color80, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q3_cloud_ecdf.csv};
+\addlegendentry{flinke2c_bu_q3_cloud}
+\addplot[mark=none, color=color81, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q3_e2c_ecdf.csv};
+\addlegendentry{flinke2c_bu_q3_e2c}
+\addplot[mark=none, color=color82, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q3_eh_ecdf.csv};
+\addlegendentry{flinke2c_bu_q3_eh}
+\addplot[mark=none, color=color83, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q3_wan_ecdf.csv};
+\addlegendentry{flinke2c_bu_q3_wan}
+\addplot[mark=none, color=color84, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q4_cloud_ecdf.csv};
+\addlegendentry{flinke2c_bu_q4_cloud}
+\addplot[mark=none, color=color85, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q4_e2c_ecdf.csv};
+\addlegendentry{flinke2c_bu_q4_e2c}
+\addplot[mark=none, color=color86, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q4_eh_ecdf.csv};
+\addlegendentry{flinke2c_bu_q4_eh}
+\addplot[mark=none, color=color87, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q4_wan_ecdf.csv};
+\addlegendentry{flinke2c_bu_q4_wan}
+\addplot[mark=none, color=color88, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q5_cloud_ecdf.csv};
+\addlegendentry{flinke2c_bu_q5_cloud}
+\addplot[mark=none, color=color89, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q5_e2c_ecdf.csv};
+\addlegendentry{flinke2c_bu_q5_e2c}
+\addplot[mark=none, color=color90, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q5_eh_ecdf.csv};
+\addlegendentry{flinke2c_bu_q5_eh}
+\addplot[mark=none, color=color91, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q5_wan_ecdf.csv};
+\addlegendentry{flinke2c_bu_q5_wan}
+\addplot[mark=none, color=color92, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q7_cloud_ecdf.csv};
+\addlegendentry{flinke2c_bu_q7_cloud}
+\addplot[mark=none, color=color93, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q7_e2c_ecdf.csv};
+\addlegendentry{flinke2c_bu_q7_e2c}
+\addplot[mark=none, color=color94, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q7_eh_ecdf.csv};
+\addlegendentry{flinke2c_bu_q7_eh}
+\addplot[mark=none, color=color95, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q7_wan_ecdf.csv};
+\addlegendentry{flinke2c_bu_q7_wan}
+\addplot[mark=none, color=color96, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q8_cloud_ecdf.csv};
+\addlegendentry{flinke2c_bu_q8_cloud}
+\addplot[mark=none, color=color97, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q8_e2c_ecdf.csv};
+\addlegendentry{flinke2c_bu_q8_e2c}
+\addplot[mark=none, color=color98, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q8_eh_ecdf.csv};
+\addlegendentry{flinke2c_bu_q8_eh}
+\addplot[mark=none, color=color99, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_bu_q8_wan_ecdf.csv};
+\addlegendentry{flinke2c_bu_q8_wan}
+\addplot[mark=none, color=color100, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q1_cloud_ecdf.csv};
+\addlegendentry{flinke2c_td_q1_cloud}
+\addplot[mark=none, color=color101, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q1_e2c_ecdf.csv};
+\addlegendentry{flinke2c_td_q1_e2c}
+\addplot[mark=none, color=color102, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q1_eh_ecdf.csv};
+\addlegendentry{flinke2c_td_q1_eh}
+\addplot[mark=none, color=color103, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q1_wan_ecdf.csv};
+\addlegendentry{flinke2c_td_q1_wan}
+\addplot[mark=none, color=color104, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q2_cloud_ecdf.csv};
+\addlegendentry{flinke2c_td_q2_cloud}
+\addplot[mark=none, color=color105, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q2_e2c_ecdf.csv};
+\addlegendentry{flinke2c_td_q2_e2c}
+\addplot[mark=none, color=color106, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q2_eh_ecdf.csv};
+\addlegendentry{flinke2c_td_q2_eh}
+\addplot[mark=none, color=color107, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q2_wan_ecdf.csv};
+\addlegendentry{flinke2c_td_q2_wan}
+\addplot[mark=none, color=color108, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q3_cloud_ecdf.csv};
+\addlegendentry{flinke2c_td_q3_cloud}
+\addplot[mark=none, color=color109, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q3_e2c_ecdf.csv};
+\addlegendentry{flinke2c_td_q3_e2c}
+\addplot[mark=none, color=color110, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q3_eh_ecdf.csv};
+\addlegendentry{flinke2c_td_q3_eh}
+\addplot[mark=none, color=color111, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q3_wan_ecdf.csv};
+\addlegendentry{flinke2c_td_q3_wan}
+\addplot[mark=none, color=color112, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q4_cloud_ecdf.csv};
+\addlegendentry{flinke2c_td_q4_cloud}
+\addplot[mark=none, color=color113, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q4_e2c_ecdf.csv};
+\addlegendentry{flinke2c_td_q4_e2c}
+\addplot[mark=none, color=color114, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q4_eh_ecdf.csv};
+\addlegendentry{flinke2c_td_q4_eh}
+\addplot[mark=none, color=color115, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q4_wan_ecdf.csv};
+\addlegendentry{flinke2c_td_q4_wan}
+\addplot[mark=none, color=color116, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q5_cloud_ecdf.csv};
+\addlegendentry{flinke2c_td_q5_cloud}
+\addplot[mark=none, color=color117, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q5_e2c_ecdf.csv};
+\addlegendentry{flinke2c_td_q5_e2c}
+\addplot[mark=none, color=color118, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q5_eh_ecdf.csv};
+\addlegendentry{flinke2c_td_q5_eh}
+\addplot[mark=none, color=color119, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q5_wan_ecdf.csv};
+\addlegendentry{flinke2c_td_q5_wan}
+\addplot[mark=none, color=color120, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q7_cloud_ecdf.csv};
+\addlegendentry{flinke2c_td_q7_cloud}
+\addplot[mark=none, color=color121, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q7_e2c_ecdf.csv};
+\addlegendentry{flinke2c_td_q7_e2c}
+\addplot[mark=none, color=color122, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q7_eh_ecdf.csv};
+\addlegendentry{flinke2c_td_q7_eh}
+\addplot[mark=none, color=color123, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q7_wan_ecdf.csv};
+\addlegendentry{flinke2c_td_q7_wan}
+\addplot[mark=none, color=color124, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q8_cloud_ecdf.csv};
+\addlegendentry{flinke2c_td_q8_cloud}
+\addplot[mark=none, color=color125, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q8_e2c_ecdf.csv};
+\addlegendentry{flinke2c_td_q8_e2c}
+\addplot[mark=none, color=color126, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q8_eh_ecdf.csv};
+\addlegendentry{flinke2c_td_q8_eh}
+\addplot[mark=none, color=color127, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_with_det/placement_rel_flinke2c_td_q8_wan_ecdf.csv};
+\addlegendentry{flinke2c_td_q8_wan}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,9 @@
+label,x_index,outlier_index,outlier
+Baseline,0,0,902129.0
+Baseline,0,1,917950.0
+Baseline,0,2,1030399.0
+Baseline,0,3,1030406.0
+FlinkE2C\\(Java UDF),2,0,870052.0
+FlinkE2C\\(Java UDF),2,1,870241.0
+FlinkE2C\\(Java UDF),2,2,873317.0
+FlinkE2C\\(Rust UDF),3,0,596140.0

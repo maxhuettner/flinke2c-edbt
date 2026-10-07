@@ -1,0 +1,3 @@
+x,ecdf,key,label,percentile
+55.93349938999999,0.0,flinke2c_judf_q1i10,FlinkE2C\\(Java UDF),99.0
+55.93349938999999,1.0,flinke2c_judf_q1i10,FlinkE2C\\(Java UDF),99.0

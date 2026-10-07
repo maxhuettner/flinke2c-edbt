@@ -1,0 +1,27 @@
+label,x_index,outlier_index,outlier
+Baseline,0,0,328510.0
+Baseline,0,1,337530.0
+Baseline,0,2,337822.0
+Baseline,0,3,339666.0
+Baseline,0,4,339706.0
+Baseline,0,5,339734.0
+Baseline,0,6,339737.0
+Baseline,0,7,339738.0
+Baseline,0,8,339742.0
+Baseline,0,9,339759.0
+Baseline,0,10,341553.0
+Baseline,0,11,341926.0
+Baseline,0,12,359954.0
+Baseline,0,13,360075.0
+cepless\\_q1i10,1,0,60768.0
+FlinkE2C\\(Java UDF),2,0,404970.0
+FlinkE2C\\(Java UDF),2,1,406156.0
+FlinkE2C\\(Java UDF),2,2,408254.0
+FlinkE2C\\(Java UDF),2,3,452324.0
+FlinkE2C\\(Java UDF),2,4,466818.0
+FlinkE2C\\(Java UDF),2,5,467933.0
+FlinkE2C\\(Java UDF),2,6,469713.0
+FlinkE2C\\(Rust UDF),3,0,554689.0
+FlinkE2C\\(Rust UDF),3,1,555744.0
+FlinkE2C\\(Rust UDF),3,2,562507.0
+FlinkE2C\\(Rust UDF),3,3,567586.0

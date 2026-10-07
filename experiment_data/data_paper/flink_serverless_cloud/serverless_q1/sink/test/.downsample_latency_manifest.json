@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "files": {
+    "latency_test_0.parquet": {
+      "size_bytes": 3619729,
+      "mtime_ns": 1771000362074344460,
+      "updated_at": "2026-02-13T16:35:18.217137+00:00",
+      "status": "registered_existing"
+    },
+    "latency_test_1.parquet": {
+      "size_bytes": 3614453,
+      "mtime_ns": 1771000362119829102,
+      "updated_at": "2026-02-13T16:35:18.217181+00:00",
+      "status": "registered_existing"
+    },
+    "latency_test_2.parquet": {
+      "size_bytes": 3467101,
+      "mtime_ns": 1771000362165438620,
+      "updated_at": "2026-02-13T16:35:18.217222+00:00",
+      "status": "registered_existing"
+    },
+    "latency_test_3.parquet": {
+      "size_bytes": 3560045,
+      "mtime_ns": 1771000362212391849,
+      "updated_at": "2026-02-13T16:35:18.217260+00:00",
+      "status": "registered_existing"
+    },
+    "latency_test_4.parquet": {
+      "size_bytes": 3445592,
+      "mtime_ns": 1771000362254201942,
+      "updated_at": "2026-02-13T16:35:18.217298+00:00",
+      "status": "registered_existing"
+    }
+  }
+}

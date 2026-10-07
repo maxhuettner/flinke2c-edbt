@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "files": {
+    "latency_flink_q4_nes_cloud_0.parquet": {
+      "size_bytes": 1086226,
+      "mtime_ns": 1789026507818726877,
+      "updated_at": "2026-09-10T07:48:27.819263+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1086226,
+      "fraction_used": 0.1,
+      "p999_after": 1044735687.405,
+      "p999_rel_error": 2.2297797139695445e-05
+    },
+    "latency_flink_q4_nes_cloud_1.parquet": {
+      "size_bytes": 1100926,
+      "mtime_ns": 1789026507834455627,
+      "updated_at": "2026-09-10T07:48:27.835235+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1100926,
+      "fraction_used": 0.1,
+      "p999_after": 855016958.459,
+      "p999_rel_error": 2.6852805931449184e-05
+    },
+    "latency_flink_q4_nes_cloud_2.parquet": {
+      "size_bytes": 1086705,
+      "mtime_ns": 1789026507851008607,
+      "updated_at": "2026-09-10T07:48:27.851605+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1086705,
+      "fraction_used": 0.1,
+      "p999_after": 1099245713.125,
+      "p999_rel_error": 1.6227631596215072e-05
+    },
+    "latency_flink_q4_nes_cloud_3.parquet": {
+      "size_bytes": 1077610,
+      "mtime_ns": 1789026507868576480,
+      "updated_at": "2026-09-10T07:48:27.869210+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1077610,
+      "fraction_used": 0.1,
+      "p999_after": 896154586.098,
+      "p999_rel_error": 1.0704513998325969e-05
+    },
+    "latency_flink_q4_nes_cloud_4.parquet": {
+      "size_bytes": 1108550,
+      "mtime_ns": 1789026507883732243,
+      "updated_at": "2026-09-10T07:48:27.884508+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1108550,
+      "fraction_used": 0.1,
+      "p999_after": 1237048423.321,
+      "p999_rel_error": 3.506197242129257e-05
+    }
+  }
+}

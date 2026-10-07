@@ -1,0 +1,18 @@
+label,x_index,outlier_index,outlier
+Flink,0,0,1192392.0
+Flink,0,1,1199126.0
+Flink,0,2,1205901.0
+Flink,0,3,1207513.0
+Flink,0,4,1208175.0
+Flink,0,5,1210323.0
+FlinkE2C\\(Rust UDF),3,0,771648.0
+FlinkE2C\\(Rust UDF),3,1,777357.0
+FlinkE2C\\(Rust UDF),3,2,778399.0
+FlinkE2C\\(Rust UDF),3,3,781460.0
+FlinkE2C\\(Rust UDF),3,4,782280.0
+FlinkE2C\\(Rust UDF),3,5,783999.0
+FlinkE2C\\(Rust UDF),3,6,784030.0
+FlinkE2C\\(Rust UDF),3,7,785190.0
+FlinkE2C\\(Rust UDF),3,8,786229.0
+FlinkE2C\\(Rust UDF),3,9,787406.0
+FlinkE2C\\(Rust UDF),3,10,825626.0

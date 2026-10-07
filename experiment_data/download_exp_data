@@ -1,0 +1,186 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+CONFIG_FILE=${DOWNLOAD_EXP_DATA_CONFIG:-"$SCRIPT_DIR/download_exp_data.conf"}
+DRY_RUN=0
+
+usage() {
+    cat <<'EOF'
+Usage: download_exp_data [-external] [-no-perf] [-n] [-c config-file] EXP_NAME
+
+Download source, sink, and optional GPU performance data for EXP_NAME.
+
+Options:
+  -c FILE  Use FILE instead of download_exp_data.conf
+  -g HOST  Download /tmp/perf_gpu.csv from HOST
+  -r HOST  Download /tmp/rdma_perf_pre.csv and _post.csv from HOST
+  -external  Use gpu_perf and rdma_perf instead of gpu_host performance data
+  -no-perf  Skip all performance CSV downloads
+  -n       Print rsync commands without transferring files
+  -h       Show this help
+EOF
+}
+
+die() {
+    echo "download_exp_data: $*" >&2
+    exit 1
+}
+
+trim() {
+    local value=$1
+    value=${value#"${value%%[![:space:]]*}"}
+    value=${value%"${value##*[![:space:]]}"}
+    printf '%s' "$value"
+}
+
+load_config() {
+    [[ -f "$CONFIG_FILE" ]] || die "config file not found: $CONFIG_FILE"
+
+    local line key value
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        line=$(trim "$line")
+        [[ -z "$line" || ${line:0:1} == "#" ]] && continue
+        [[ "$line" == *=* ]] || die "invalid config line: $line"
+
+        key=$(trim "${line%%=*}")
+        value=$(trim "${line#*=}")
+        if [[ ${#value} -ge 2 && ${value:0:1} == '"' && ${value: -1} == '"' ]]; then
+            value=${value:1:${#value}-2}
+        elif [[ ${#value} -ge 2 && ${value:0:1} == "'" && ${value: -1} == "'" ]]; then
+            value=${value:1:${#value}-2}
+        fi
+
+        case "$key" in
+            source_host) source_host=$value ;;
+            sink_host) sink_host=$value ;;
+            gpu_host) gpu_host=$value ;;
+            gpu_perf) gpu_perf=$value ;;
+            rdma_perf) rdma_perf=$value ;;
+            *) die "unknown config key: $key" ;;
+        esac
+    done < "$CONFIG_FILE"
+}
+
+sync_path() {
+    local host=$1
+    local remote_path=$2
+    local local_path=$3
+    local -a rsync_args=(-av --progress)
+
+    if (( DRY_RUN )); then
+        printf 'mkdir -p %q\n' "$local_path"
+        printf 'rsync -av --progress %q %q\n' "$host:$remote_path" "$local_path"
+        return 0
+    fi
+
+    mkdir -p "$local_path"
+    echo "Syncing $host:$remote_path -> $local_path"
+    rsync "${rsync_args[@]}" "$host:$remote_path" "$local_path"
+}
+
+sync_optional_file() {
+    local host=$1
+    local remote_path=$2
+    local local_path=$3
+    local label=$4
+    local host_lower
+
+    host_lower=$(printf '%s' "$host" | tr '[:upper:]' '[:lower:]')
+    case "$host_lower" in
+        ""|false|no|0|off)
+            echo "$label disabled"
+            ;;
+        true)
+            die "$label=true is ambiguous; set it to the server hostname or false"
+            ;;
+        *)
+            sync_path "$host" "$remote_path" "$local_path"
+            ;;
+    esac
+}
+
+source_host=
+sink_host=
+gpu_host=false
+gpu_perf=false
+rdma_perf=false
+gpu_perf_override=
+rdma_perf_override=
+EXTERNAL=0
+NO_PERF=0
+
+# Accept the requested long flags with either one or two leading dashes.
+normalized_args=()
+for argument in "$@"; do
+    if [[ "$argument" == "-external" || "$argument" == "--external" ]]; then
+        EXTERNAL=1
+    elif [[ "$argument" == "-no-perf" || "$argument" == "--no-perf" ]]; then
+        NO_PERF=1
+    else
+        normalized_args+=("$argument")
+    fi
+done
+set -- "${normalized_args[@]}"
+
+while getopts ":c:g:r:neh" option; do
+    case "$option" in
+        c) CONFIG_FILE=$OPTARG ;;
+        g) gpu_perf_override=$OPTARG ;;
+        r) rdma_perf_override=$OPTARG ;;
+        e) EXTERNAL=1 ;;
+        n) DRY_RUN=1 ;;
+        h)
+            usage
+            exit 0
+            ;;
+        :) die "option -$OPTARG requires an argument" ;;
+        \?) die "unknown option: -$OPTARG" ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+[[ $# -eq 1 ]] || { usage >&2; exit 2; }
+EXP_NAME=$1
+[[ "$EXP_NAME" =~ ^[A-Za-z0-9._-]+$ ]] || die "invalid experiment name: $EXP_NAME"
+
+load_config
+[[ -n "$source_host" ]] || die "source_host is missing from $CONFIG_FILE"
+[[ -n "$sink_host" ]] || die "sink_host is missing from $CONFIG_FILE"
+[[ -n "$gpu_perf_override" ]] && gpu_perf=$gpu_perf_override
+[[ -n "$rdma_perf_override" ]] && rdma_perf=$rdma_perf_override
+
+DATA_DIR="$SCRIPT_DIR/data_gpu/$EXP_NAME"
+sync_path "$source_host" "/home/mhuttner/logs/bids/source/" "$DATA_DIR/source/"
+sync_path "$sink_host" "/home/mhuttner/logs/sink/bid-only/" "$DATA_DIR/sink/"
+
+if (( NO_PERF )); then
+    echo "Performance CSV downloads disabled"
+    exit 0
+fi
+
+if (( EXTERNAL )); then
+    echo "External performance mode enabled; skipping gpu_host performance data"
+    sync_optional_file \
+        "$gpu_perf" \
+        "/tmp/perf_gpu.csv" \
+        "$SCRIPT_DIR/perf_data/$EXP_NAME/" \
+        "GPU server performance data"
+    sync_optional_file \
+        "$rdma_perf" \
+        "/tmp/rdma_perf_pre.csv" \
+        "$SCRIPT_DIR/perf_data/$EXP_NAME/" \
+        "RDMA pre performance data"
+    sync_optional_file \
+        "$rdma_perf" \
+        "/tmp/rdma_perf_post.csv" \
+        "$SCRIPT_DIR/perf_data/$EXP_NAME/" \
+        "RDMA post performance data"
+else
+    sync_optional_file \
+        "$gpu_host" \
+        "/tmp/perf.csv" \
+        "$SCRIPT_DIR/perf_data/$EXP_NAME/" \
+        "GPU imputation performance data"
+fi

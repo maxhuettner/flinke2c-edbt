@@ -1,0 +1,9 @@
+x,ecdf,key,label
+29462.813174091953,0.0,flink,flink_q5_nes_e2c
+29462.813174091953,0.25,flink,flink_q5_nes_e2c
+34174.090244857354,0.25,flink,flink_q5_nes_e2c
+34174.090244857354,0.5,flink,flink_q5_nes_e2c
+57947.53241455841,0.5,flink,flink_q5_nes_e2c
+57947.53241455841,0.75,flink,flink_q5_nes_e2c
+66004.41756087706,0.75,flink,flink_q5_nes_e2c
+66004.41756087706,1.0,flink,flink_q5_nes_e2c

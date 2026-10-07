@@ -1,0 +1,42 @@
+\begin{tikzpicture}
+% Define colors
+\definecolor{color1}{RGB}{31,119,180}
+\definecolor{color2}{RGB}{255,127,14}
+\definecolor{color3}{RGB}{44,160,44}
+\definecolor{color4}{RGB}{214,39,40}
+\definecolor{color5}{RGB}{148,103,189}
+\definecolor{color6}{RGB}{140,86,75}
+\definecolor{color7}{RGB}{227,119,194}
+\definecolor{color8}{RGB}{127,127,127}
+\definecolor{color9}{RGB}{188,189,34}
+\definecolor{color10}{RGB}{23,190,207}
+
+\begin{axis}[
+    width=\linewidth,
+    height=0.6\linewidth,
+    xlabel={Throughput (tps)},
+    ylabel={Density},
+    xmin=0,
+    ymin=0.0,
+    ymax=0.00255158048985642,
+    ymajorgrids=true,
+    xmajorgrids=true,
+    legend pos=north west,
+    legend style={nodes={scale=0.5, transform shape}, legend cell align=left},
+    every axis plot/.append style={very thick},
+    tick label style={/pgf/number format/fixed},
+    x tick label style={/pgf/number format/1000 sep=,},
+    scaled x ticks=false
+]
+
+\addlegendimage{area legend, line width=0pt, fill=color1!20, pattern=north east lines, pattern color=color1}
+\addplot[mark=none, color=color1, fill=color1!20, pattern=north east lines, pattern color=color1, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/placement_het_het_base_het_het_cpu30_q1_kde.csv};
+\addlegendentry{Baseline  (30\% CPU)}
+\addlegendimage{area legend, line width=0pt, fill=color2!20, pattern=north west lines, pattern color=color2}
+\addplot[mark=none, color=color2, fill=color2!20, pattern=north west lines, pattern color=color2, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/placement_het_het_bottom_up_het_het_cpu30_q1_kde.csv};
+\addlegendentry{Bottom-up placement  (30\% CPU)}
+\addlegendimage{area legend, line width=0pt, fill=color3!20, pattern=crosshatch, pattern color=color3}
+\addplot[mark=none, color=color3, fill=color3!20, pattern=crosshatch, pattern color=color3, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/placement_het_het_top_down_het_het_cpu30_q1_kde.csv};
+\addlegendentry{Top-down placement  (30\% CPU)}
+\end{axis}
+\end{tikzpicture}

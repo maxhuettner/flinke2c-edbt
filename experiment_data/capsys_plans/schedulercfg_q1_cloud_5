@@ -1,0 +1,4 @@
+Sink: nexmark_q1[4]; 10.10.0.12
+Calc[3]; 10.10.0.13
+WatermarkAssigner[2]; 10.10.0.14
+Source: bids[1]; 10.10.0.15

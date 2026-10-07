@@ -1,0 +1,3 @@
+x,ecdf,key,label,percentile
+60.0610941,0.0,flinke2c_local_gpu_q1,FlinkE2C\\(Local GPU | DGX),99.0
+60.0610941,1.0,flinke2c_local_gpu_q1,FlinkE2C\\(Local GPU | DGX),99.0

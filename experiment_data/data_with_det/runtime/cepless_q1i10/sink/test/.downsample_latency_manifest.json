@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "files": {
+    "latency_test_0.parquet": {
+      "size_bytes": 1094484,
+      "mtime_ns": 1790957395262201704,
+      "updated_at": "2026-10-02T16:17:41.165465+00:00",
+      "status": "kept",
+      "rows_after": 100000,
+      "bytes_after": 1094484,
+      "fraction_used": 1.0,
+      "p999_after": 2818025599.087,
+      "p999_rel_error": 0.0
+    },
+    "latency_test_1.parquet": {
+      "size_bytes": 1102228,
+      "mtime_ns": 1790957395264036876,
+      "updated_at": "2026-10-02T16:17:41.171785+00:00",
+      "status": "kept",
+      "rows_after": 100000,
+      "bytes_after": 1102228,
+      "fraction_used": 1.0,
+      "p999_after": 2769583341.348,
+      "p999_rel_error": 0.0
+    },
+    "latency_test_2.parquet": {
+      "size_bytes": 1106465,
+      "mtime_ns": 1790957395265632548,
+      "updated_at": "2026-10-02T16:17:41.180010+00:00",
+      "status": "kept",
+      "rows_after": 100000,
+      "bytes_after": 1106465,
+      "fraction_used": 1.0,
+      "p999_after": 2911729938.723,
+      "p999_rel_error": 0.0
+    },
+    "latency_test_3.parquet": {
+      "size_bytes": 1098511,
+      "mtime_ns": 1790957395268293181,
+      "updated_at": "2026-10-02T16:17:41.188636+00:00",
+      "status": "kept",
+      "rows_after": 100000,
+      "bytes_after": 1098511,
+      "fraction_used": 1.0,
+      "p999_after": 2769559229.067,
+      "p999_rel_error": 0.0
+    },
+    "latency_test_4.parquet": {
+      "size_bytes": 1110888,
+      "mtime_ns": 1790957395273593697,
+      "updated_at": "2026-10-02T16:17:41.196162+00:00",
+      "status": "kept",
+      "rows_after": 100000,
+      "bytes_after": 1110888,
+      "fraction_used": 1.0,
+      "p999_after": 2929055562.224,
+      "p999_rel_error": 0.0
+    },
+    "latency_test_5.parquet": {
+      "size_bytes": 1111834,
+      "mtime_ns": 1790957395276090830,
+      "updated_at": "2026-10-02T16:17:41.202767+00:00",
+      "status": "kept",
+      "rows_after": 100000,
+      "bytes_after": 1111834,
+      "fraction_used": 1.0,
+      "p999_after": 2877555626.317,
+      "p999_rel_error": 0.0
+    }
+  }
+}

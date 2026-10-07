@@ -1,0 +1,6 @@
+exp_name,repetition,exp_name_tex,repetition_tex,exp_key,count,mean,median,q1,q3,min,max,lower_whisker,upper_whisker,outliers
+Edge-to-Cloud,rep_0,Edge-to-Cloud,rep\\_0,het_het,37,4964.810810810811,5035.0,4952.0,5056.0,3162.0,5107.0,4916.0,5107.0,[3162.0]
+Edge-to-Cloud,rep_1,Edge-to-Cloud,rep\\_1,het_het,49,660.204081632653,587.0,354.0,995.0,0.0,1528.0,0.0,1528.0,[]
+Edge-to-Cloud,rep_2,Edge-to-Cloud,rep\\_2,het_het,34,664.2647058823529,591.5,354.5,844.5,0.0,1998.0,0.0,1538.0,[1998.0]
+Edge-to-Cloud,rep_3,Edge-to-Cloud,rep\\_3,het_het,74,1028.162162162162,943.0,473.0,1528.75,0.0,2819.0,0.0,2819.0,[]
+Edge-to-Cloud,rep_4,Edge-to-Cloud,rep\\_4,het_het,39,5135.025641025641,5031.0,4936.0,5051.0,213.0,14540.0,4798.0,5207.0,"[213.0, 5412.0, 14540.0]"

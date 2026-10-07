@@ -1,0 +1,9 @@
+x,ecdf,key,label
+201719.33885955848,0.0,flink,flink_q4_nes_cloud
+201719.33885955848,0.25,flink,flink_q4_nes_cloud
+271390.18910182704,0.25,flink,flink_q4_nes_cloud
+271390.18910182704,0.5,flink,flink_q4_nes_cloud
+274215.3831943494,0.5,flink,flink_q4_nes_cloud
+274215.3831943494,0.75,flink,flink_q4_nes_cloud
+274271.1964720063,0.75,flink,flink_q4_nes_cloud
+274271.1964720063,1.0,flink,flink_q4_nes_cloud

@@ -1,0 +1,9 @@
+x,ecdf,key,label
+0.9941952447897103,0.0,nes_q4_cloud,nes_q4_cloud
+0.9941952447897103,0.25,nes_q4_cloud,nes_q4_cloud
+0.9942082888268692,0.25,nes_q4_cloud,nes_q4_cloud
+0.9942082888268692,0.5,nes_q4_cloud,nes_q4_cloud
+0.9953961622120353,0.5,nes_q4_cloud,nes_q4_cloud
+0.9953961622120353,0.75,nes_q4_cloud,nes_q4_cloud
+1.0,0.75,nes_q4_cloud,nes_q4_cloud
+1.0,1.0,nes_q4_cloud,nes_q4_cloud

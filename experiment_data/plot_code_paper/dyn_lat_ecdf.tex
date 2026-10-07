@@ -1,0 +1,91 @@
+\begin{tikzpicture}
+% Define colors
+\definecolor{color1}{RGB}{31,119,180}
+\definecolor{color2}{RGB}{255,127,14}
+\definecolor{color3}{RGB}{44,160,44}
+\definecolor{color4}{RGB}{214,39,40}
+\definecolor{color5}{RGB}{148,103,189}
+\definecolor{color6}{RGB}{140,86,75}
+\definecolor{color7}{RGB}{227,119,194}
+\definecolor{color8}{RGB}{127,127,127}
+\definecolor{color9}{RGB}{188,189,34}
+\definecolor{color10}{RGB}{23,190,207}
+
+\begin{axis}[
+    width=\linewidth,
+    height=0.6\linewidth,
+    xlabel={Latency (ms)},
+    ylabel={Cumulative Probability},
+    xmin=0,
+    ymin=0.0,
+    ymax=1.0,
+    ymajorgrids=true,
+    xmajorgrids=true,
+    legend pos=north west,
+    legend style={nodes={scale=0.5, transform shape}, legend cell align=left},
+    every axis plot/.append style={very thick},
+    tick label style={/pgf/number format/fixed},
+    x tick label style={/pgf/number format/1000 sep=,},
+    scaled x ticks=false
+]
+
+\addplot[mark=none, color=color1, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flink_q1_ecdf.csv};
+\addlegendentry{Flink}
+\addplot[mark=none, color=color2, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_judf_q1_ecdf.csv};
+\addlegendentry{FlinkE2C (Java UDF)}
+\addplot[mark=none, color=color3, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_rudf_q1_ecdf.csv};
+\addlegendentry{FlinkE2C (Rust UDF)}
+\addplot[mark=none, color=color4, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flink_q1i10_ecdf.csv};
+\addlegendentry{Baseline}
+\addplot[mark=none, color=color5, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_judf_q1i10_ecdf.csv};
+\addlegendentry{FlinkE2C (Java UDF)}
+\addplot[mark=none, color=color6, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_rudf_q1i10_ecdf.csv};
+\addlegendentry{FlinkE2C (Rust UDF)}
+\addplot[mark=none, color=color7, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flink_q1f_ecdf.csv};
+\addlegendentry{Baseline}
+\addplot[mark=none, color=color8, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_judf_q1f_ecdf.csv};
+\addlegendentry{FlinkE2C (Java UDF)}
+\addplot[mark=none, color=color9, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_rudf_q1f_ecdf.csv};
+\addlegendentry{FlinkE2C (Rust UDF)}
+\addplot[mark=none, color=color10, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_gpu_q1_ecdf.csv};
+\addlegendentry{FlinkE2C (GPU)}
+\addplot[mark=none, color=color11, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flink_fn_q1i_ecdf.csv};
+\addlegendentry{Baseline (fn-node)}
+\addplot[mark=none, color=color12, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flink_dgx_q1_ecdf.csv};
+\addlegendentry{Baseline (DGX)}
+\addplot[mark=none, color=color13, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_local_gpu_q1i_ecdf.csv};
+\addlegendentry{FlinkE2C (Local GPU | DGX)}
+\addplot[mark=none, color=color14, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_local_gpu_q1_ecdf.csv};
+\addlegendentry{FlinkE2C (Local GPU | DGX)}
+\addplot[mark=none, color=color15, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flinke2c_gpu_q1i_ecdf.csv};
+\addlegendentry{FlinkE2C (RDMA GPU | Q1I)}
+\addplot[mark=none, color=color16, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_cepless_q1_ecdf.csv};
+\addlegendentry{cepless_q1}
+\addplot[mark=none, color=color17, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_cepless_q1f_ecdf.csv};
+\addlegendentry{cepless_q1f}
+\addplot[mark=none, color=color18, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_cepless_q1i10_ecdf.csv};
+\addlegendentry{cepless_q1i10}
+\addplot[mark=none, color=color19, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flink_dgx_q1i_ecdf.csv};
+\addlegendentry{flink_dgx_q1i}
+\addplot[mark=none, color=color20, densely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_flink_fn_q1_ecdf.csv};
+\addlegendentry{Baseline (fn-nodes)}
+\addplot[mark=none, color=color21, solid] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1_cpu_ecdf.csv};
+\addlegendentry{q1_cpu}
+\addplot[mark=none, color=color22, dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1_direct_gpu_ecdf.csv};
+\addlegendentry{q1_direct_gpu}
+\addplot[mark=none, color=color23, dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1_rdma_gpu_ecdf.csv};
+\addlegendentry{q1_rdma_gpu}
+\addplot[mark=none, color=color24, dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1i_cpu_ecdf.csv};
+\addlegendentry{q1i_cpu}
+\addplot[mark=none, color=color25, densely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1i_direct_gpu_ecdf.csv};
+\addlegendentry{q1i_direct_gpu}
+\addplot[mark=none, color=color26, densely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1i_rdma_gpu_ecdf.csv};
+\addlegendentry{q1i_rdma_gpu}
+\addplot[mark=none, color=color27, loosely dashed] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1s_cpu_ecdf.csv};
+\addlegendentry{q1s_cpu}
+\addplot[mark=none, color=color28, loosely dotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1s_direct_gpu_ecdf.csv};
+\addlegendentry{q1s_direct_gpu}
+\addplot[mark=none, color=color29, loosely dashdotted] table[x=x, y=ecdf, col sep=comma] {plot_data_paper/dyn_lat_q1s_rdma_gpu_ecdf.csv};
+\addlegendentry{q1s_rdma_gpu}
+\end{axis}
+\end{tikzpicture}

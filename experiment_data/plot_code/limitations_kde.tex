@@ -1,0 +1,60 @@
+\begin{tikzpicture}
+% Define colors
+\definecolor{color1}{RGB}{31,119,180}
+\definecolor{color2}{RGB}{255,127,14}
+\definecolor{color3}{RGB}{44,160,44}
+\definecolor{color4}{RGB}{214,39,40}
+\definecolor{color5}{RGB}{148,103,189}
+\definecolor{color6}{RGB}{140,86,75}
+\definecolor{color7}{RGB}{227,119,194}
+\definecolor{color8}{RGB}{127,127,127}
+\definecolor{color9}{RGB}{188,189,34}
+\definecolor{color10}{RGB}{23,190,207}
+
+\begin{axis}[
+    width=\linewidth,
+    height=0.6\linewidth,
+    xlabel={Throughput (tps)},
+    ylabel={Density},
+    xmin=0,
+    ymin=0.0,
+    ymax=28.219382671672705,
+    ymajorgrids=true,
+    xmajorgrids=true,
+    legend pos=north west,
+    legend style={nodes={scale=0.5, transform shape}, legend cell align=left},
+    every axis plot/.append style={very thick},
+    tick label style={/pgf/number format/fixed},
+    x tick label style={/pgf/number format/1000 sep=,},
+    scaled x ticks=false
+]
+
+\addlegendimage{area legend, line width=0pt, fill=color1!20, pattern=north east lines, pattern color=color1}
+\addplot[mark=none, color=color1, fill=color1!20, pattern=north east lines, pattern color=color1, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_hom_hom_q1_kde.csv};
+\addlegendentry{Baseline (Hom. nodes | Hom. topology)}
+\addlegendimage{area legend, line width=0pt, fill=color2!20, pattern=north west lines, pattern color=color2}
+\addplot[mark=none, color=color2, fill=color2!20, pattern=north west lines, pattern color=color2, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_hom_het_q1_kde.csv};
+\addlegendentry{Baseline (Hom. nodes | Het. topology)}
+\addlegendimage{area legend, line width=0pt, fill=color3!20, pattern=crosshatch, pattern color=color3}
+\addplot[mark=none, color=color3, fill=color3!20, pattern=crosshatch, pattern color=color3, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_het_het_cpu25_100mbps_q1_kde.csv};
+\addlegendentry{Baseline (Het. nodes | Het. topology)}
+\addlegendimage{area legend, line width=0pt, fill=color4!20, pattern=crosshatch dots, pattern color=color4}
+\addplot[mark=none, color=color4, fill=color4!20, pattern=crosshatch dots, pattern color=color4, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_tcp_kde.csv};
+\addlegendentry{Baseline (TCP-So | Hom. nodes | Hom. topology)}
+\addlegendimage{area legend, line width=0pt, fill=color5!20, pattern=horizontal lines, pattern color=color5}
+\addplot[mark=none, color=color5, fill=color5!20, pattern=horizontal lines, pattern color=color5, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_hom_het_tcp_kde.csv};
+\addlegendentry{Baseline (TCP-So | Hom. nodes | Het. topology)}
+\addlegendimage{area legend, line width=0pt, fill=color6!20, pattern=vertical lines, pattern color=color6}
+\addplot[mark=none, color=color6, fill=color6!20, pattern=vertical lines, pattern color=color6, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_het_het_cpu25_100mbps_tcp_kde.csv};
+\addlegendentry{Baseline (TCP-So | Het. nodes | Het. topology)}
+\addlegendimage{area legend, line width=0pt, fill=color7!20, pattern=grid, pattern color=color7}
+\addplot[mark=none, color=color7, fill=color7!20, pattern=grid, pattern color=color7, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_tcp_ss_kde.csv};
+\addlegendentry{Baseline (Hom. nodes | Hom. topology)}
+\addlegendimage{area legend, line width=0pt, fill=color8!20, pattern=dots, pattern color=color8}
+\addplot[mark=none, color=color8, fill=color8!20, pattern=dots, pattern color=color8, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_hom_het_tcp_ss_kde.csv};
+\addlegendentry{Baseline (Hom. nodes | Het. topology)}
+\addlegendimage{area legend, line width=0pt, fill=color9!20, pattern=bricks, pattern color=color9}
+\addplot[mark=none, color=color9, fill=color9!20, pattern=bricks, pattern color=color9, forget plot] table[x=x, y=kde, col sep=comma] {plot_data/limitations_base_het_hom_cpu30_tcp_ss_kde.csv};
+\addlegendentry{Baseline (Het. nodes | Het. topology)}
+\end{axis}
+\end{tikzpicture}

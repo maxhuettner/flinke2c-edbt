@@ -1,0 +1,343 @@
+{
+  "jid": "18a656352b533eaa1e85b605d276c7ff",
+  "name": "insert-into_default_catalog.default_database.nexmark_q1",
+  "isStoppable": false,
+  "state": "RUNNING",
+  "start-time": 1740059932292,
+  "end-time": -1,
+  "duration": 4927,
+  "maxParallelism": -1,
+  "now": 1740059937219,
+  "timestamps": {
+    "SUSPENDED": 0,
+    "FAILING": 0,
+    "FINISHED": 0,
+    "CANCELLING": 0,
+    "RECONCILING": 0,
+    "RUNNING": 1740059932794,
+    "FAILED": 0,
+    "CREATED": 1740059932516,
+    "CANCELED": 0,
+    "INITIALIZING": 1740059932292,
+    "RESTARTING": 0
+  },
+  "vertices": [
+    {
+      "id": "bc764cd8ddf7a0cff126f51c16239658",
+      "name": "Source: datagen[1]",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1740059933046,
+      "end-time": -1,
+      "duration": 4173,
+      "tasks": {
+        "CANCELED": 0,
+        "CANCELING": 0,
+        "SCHEDULED": 0,
+        "INITIALIZING": 0,
+        "CREATED": 0,
+        "DEPLOYING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "FAILED": 0,
+        "RUNNING": 1
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "0a448493b4782967b150582570326227",
+      "name": "Calc[2]",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1740059933050,
+      "end-time": -1,
+      "duration": 4169,
+      "tasks": {
+        "CANCELED": 0,
+        "CANCELING": 0,
+        "SCHEDULED": 0,
+        "INITIALIZING": 0,
+        "CREATED": 0,
+        "DEPLOYING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "FAILED": 0,
+        "RUNNING": 1
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "ea632d67b7d595e5b851708ae9ad79d6",
+      "name": "WatermarkAssigner[3]",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1740059933061,
+      "end-time": -1,
+      "duration": 4158,
+      "tasks": {
+        "CANCELED": 0,
+        "CANCELING": 0,
+        "SCHEDULED": 0,
+        "INITIALIZING": 0,
+        "CREATED": 0,
+        "DEPLOYING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "FAILED": 0,
+        "RUNNING": 1
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "6d2677a0ecc3fd8df0b72ec675edf8f4",
+      "name": "MiniBatchAssigner[4]",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1740059933062,
+      "end-time": -1,
+      "duration": 4157,
+      "tasks": {
+        "CANCELED": 0,
+        "CANCELING": 0,
+        "SCHEDULED": 0,
+        "INITIALIZING": 0,
+        "CREATED": 0,
+        "DEPLOYING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "FAILED": 0,
+        "RUNNING": 1
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "ddb598ad156ed281023ba4eebbe487e3",
+      "name": "Calc[5]",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1740059933064,
+      "end-time": -1,
+      "duration": 4155,
+      "tasks": {
+        "CANCELED": 0,
+        "CANCELING": 0,
+        "SCHEDULED": 0,
+        "INITIALIZING": 0,
+        "CREATED": 0,
+        "DEPLOYING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "FAILED": 0,
+        "RUNNING": 1
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    },
+    {
+      "id": "46f8730428df9ecd6d7318a02bdc405e",
+      "name": "Sink: nexmark_q1[6]",
+      "maxParallelism": 128,
+      "parallelism": 1,
+      "status": "RUNNING",
+      "start-time": 1740059933067,
+      "end-time": -1,
+      "duration": 4152,
+      "tasks": {
+        "CANCELED": 0,
+        "CANCELING": 0,
+        "SCHEDULED": 0,
+        "INITIALIZING": 0,
+        "CREATED": 0,
+        "DEPLOYING": 0,
+        "FINISHED": 0,
+        "RECONCILING": 0,
+        "FAILED": 0,
+        "RUNNING": 1
+      },
+      "metrics": {
+        "read-bytes": 0,
+        "read-bytes-complete": false,
+        "write-bytes": 0,
+        "write-bytes-complete": false,
+        "read-records": 0,
+        "read-records-complete": false,
+        "write-records": 0,
+        "write-records-complete": false,
+        "accumulated-backpressured-time": 0,
+        "accumulated-idle-time": 0,
+        "accumulated-busy-time": 0.0
+      }
+    }
+  ],
+  "status-counts": {
+    "CANCELED": 0,
+    "CANCELING": 0,
+    "SCHEDULED": 0,
+    "INITIALIZING": 0,
+    "CREATED": 0,
+    "DEPLOYING": 0,
+    "FINISHED": 0,
+    "RECONCILING": 0,
+    "FAILED": 0,
+    "RUNNING": 6
+  },
+  "plan": {
+    "jid": "18a656352b533eaa1e85b605d276c7ff",
+    "name": "insert-into_default_catalog.default_database.nexmark_q1",
+    "type": "STREAMING",
+    "nodes": [
+      {
+        "id": "46f8730428df9ecd6d7318a02bdc405e",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "[6]:Sink(table=[default_catalog.default_database.nexmark_q1], fields=[auction, bidder, price, dateTime, extra])<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "ddb598ad156ed281023ba4eebbe487e3",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "ddb598ad156ed281023ba4eebbe487e3",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "[5]:Calc(select=[bid.auction AS auction, bid.bidder AS bidder, CAST((0.908 * bid.price) AS DECIMAL(23, 3)) AS price, CAST(dateTime AS TIMESTAMP(3)) AS dateTime, bid.extra AS extra], where=[(event_type = 2)])<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "6d2677a0ecc3fd8df0b72ec675edf8f4",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "6d2677a0ecc3fd8df0b72ec675edf8f4",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "[4]:MiniBatchAssigner(interval=[2000ms], mode=[ProcTime])<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "ea632d67b7d595e5b851708ae9ad79d6",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "ea632d67b7d595e5b851708ae9ad79d6",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "[3]:WatermarkAssigner(rowtime=[dateTime], watermark=[(dateTime - 4000:INTERVAL SECOND)])<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "0a448493b4782967b150582570326227",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "0a448493b4782967b150582570326227",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "[2]:Calc(select=[event_type, bid, CASE((event_type = 0), person.dateTime, (event_type = 1), auction.dateTime, bid.dateTime) AS dateTime])<br/>",
+        "inputs": [
+          {
+            "num": 0,
+            "id": "bc764cd8ddf7a0cff126f51c16239658",
+            "ship_strategy": "FORWARD",
+            "exchange": "pipelined_bounded"
+          }
+        ],
+        "optimizer_properties": {}
+      },
+      {
+        "id": "bc764cd8ddf7a0cff126f51c16239658",
+        "parallelism": 1,
+        "operator": "",
+        "operator_strategy": "",
+        "description": "[1]:TableSourceScan(table=[[default_catalog, default_database, datagen]], fields=[event_type, person, auction, bid])<br/>",
+        "optimizer_properties": {}
+      }
+    ]
+  }
+}

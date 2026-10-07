@@ -1,0 +1,13 @@
+Calc[16]; 10.10.0.11
+Sink: nexmark_q8[17]; 10.10.0.11
+Source: persons[1]; 10.10.0.11
+LocalWindowAggregate[11]; 10.10.0.12
+WatermarkAssigner[2]; 10.10.0.12
+Calc[3]; 10.10.0.12
+LocalWindowAggregate[4]; 10.10.0.13
+GlobalWindowAggregate[6]; 10.10.0.13
+Source: auctions[8]; 10.10.0.13
+GlobalWindowAggregate[13]; 10.10.0.14
+WindowJoin[15]; 10.10.0.14
+WatermarkAssigner[9]; 10.10.0.14
+Calc[10]; 10.10.0.15

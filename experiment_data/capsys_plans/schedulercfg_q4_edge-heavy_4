@@ -1,0 +1,12 @@
+GroupAggregate[12]; 10.10.0.11
+Source: bids[5]; 10.10.0.11
+WatermarkAssigner[6]; 10.10.0.11
+Calc[13]; 10.10.0.12
+Calc[7]; 10.10.0.12
+Join[9]; 10.10.0.12
+Sink: nexmark_q4[16]; 10.10.0.13
+Source: auctions[1]; 10.10.0.13
+Calc[10]; 10.10.0.14
+GroupAggregate[15]; 10.10.0.14
+WatermarkAssigner[2]; 10.10.0.15
+Calc[3]; 10.10.0.15

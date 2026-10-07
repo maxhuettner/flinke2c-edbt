@@ -1,0 +1,9 @@
+x,ecdf,key,label
+177401.87434721657,0.0,flink_q1_nes_edge_heavy,flink_q1_nes_edge_heavy
+177401.87434721657,0.25,flink_q1_nes_edge_heavy,flink_q1_nes_edge_heavy
+215525.44576577423,0.25,flink_q1_nes_edge_heavy,flink_q1_nes_edge_heavy
+215525.44576577423,0.5,flink_q1_nes_edge_heavy,flink_q1_nes_edge_heavy
+265403.7984649333,0.5,flink_q1_nes_edge_heavy,flink_q1_nes_edge_heavy
+265403.7984649333,0.75,flink_q1_nes_edge_heavy,flink_q1_nes_edge_heavy
+281169.70140969625,0.75,flink_q1_nes_edge_heavy,flink_q1_nes_edge_heavy
+281169.70140969625,1.0,flink_q1_nes_edge_heavy,flink_q1_nes_edge_heavy

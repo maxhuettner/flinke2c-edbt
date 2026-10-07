@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "files": {
+    "latency_test_0.parquet": {
+      "size_bytes": 1089387,
+      "mtime_ns": 1789994031840233384,
+      "updated_at": "2026-09-21T12:33:51.841751+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1089387,
+      "fraction_used": 0.1,
+      "p999_after": 3251131978.024,
+      "p999_rel_error": 4.473516789909634e-07
+    },
+    "latency_test_1.parquet": {
+      "size_bytes": 1092800,
+      "mtime_ns": 1789994031865238637,
+      "updated_at": "2026-09-21T12:33:51.866029+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1092800,
+      "fraction_used": 0.1,
+      "p999_after": 2737526667.918,
+      "p999_rel_error": 1.9978549100436235e-07
+    },
+    "latency_test_2.parquet": {
+      "size_bytes": 1092382,
+      "mtime_ns": 1789994031888593387,
+      "updated_at": "2026-09-21T12:33:51.889945+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1092382,
+      "fraction_used": 0.1,
+      "p999_after": 2725806500.778,
+      "p999_rel_error": 1.0968901111598555e-05
+    },
+    "latency_test_3.parquet": {
+      "size_bytes": 1085436,
+      "mtime_ns": 1789994031926868247,
+      "updated_at": "2026-09-21T12:33:51.927541+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1085436,
+      "fraction_used": 0.1,
+      "p999_after": 2787007506.883,
+      "p999_rel_error": 1.256804078752869e-06
+    },
+    "latency_test_4.parquet": {
+      "size_bytes": 1083955,
+      "mtime_ns": 1789994031947270450,
+      "updated_at": "2026-09-21T12:33:51.948125+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1083955,
+      "fraction_used": 0.1,
+      "p999_after": 2711445244.844,
+      "p999_rel_error": 1.7340456556140277e-06
+    },
+    "latency_test_5.parquet": {
+      "size_bytes": 1079105,
+      "mtime_ns": 1789994031966116316,
+      "updated_at": "2026-09-21T12:33:51.966694+00:00",
+      "status": "written",
+      "rows_after": 100000,
+      "bytes_after": 1079105,
+      "fraction_used": 0.1,
+      "p999_after": 2804820282.487,
+      "p999_rel_error": 5.262613584187094e-06
+    }
+  }
+}

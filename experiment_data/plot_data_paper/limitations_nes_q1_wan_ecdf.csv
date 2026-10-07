@@ -1,0 +1,9 @@
+x,ecdf,key,label
+0.9973792440179597,0.0,nes_q1_wan,nes_q1_wan
+0.9973792440179597,0.25,nes_q1_wan,nes_q1_wan
+0.9981896695429615,0.25,nes_q1_wan,nes_q1_wan
+0.9981896695429615,0.5,nes_q1_wan,nes_q1_wan
+0.9998795167557648,0.5,nes_q1_wan,nes_q1_wan
+0.9998795167557648,0.75,nes_q1_wan,nes_q1_wan
+1.0,0.75,nes_q1_wan,nes_q1_wan
+1.0,1.0,nes_q1_wan,nes_q1_wan

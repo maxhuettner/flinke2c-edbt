@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "files": {
+    "latency_flinke2c_td_q4_nes_8_e2c_0.parquet": {
+      "size_bytes": 404887,
+      "mtime_ns": 1788787937738023718,
+      "updated_at": "2026-09-10T07:48:29.084310+00:00",
+      "status": "kept",
+      "rows_after": 60046,
+      "bytes_after": 404887,
+      "fraction_used": 1.0,
+      "p999_after": 10256367753.18,
+      "p999_rel_error": 0.0
+    },
+    "latency_flinke2c_td_q4_nes_8_e2c_1.parquet": {
+      "size_bytes": 412693,
+      "mtime_ns": 1788787937739609592,
+      "updated_at": "2026-09-10T07:48:29.087165+00:00",
+      "status": "kept",
+      "rows_after": 60046,
+      "bytes_after": 412693,
+      "fraction_used": 1.0,
+      "p999_after": 7552469455.15,
+      "p999_rel_error": 0.0
+    },
+    "latency_flinke2c_td_q4_nes_8_e2c_2.parquet": {
+      "size_bytes": 409235,
+      "mtime_ns": 1788787937740904103,
+      "updated_at": "2026-09-10T07:48:29.089932+00:00",
+      "status": "kept",
+      "rows_after": 60046,
+      "bytes_after": 409235,
+      "fraction_used": 1.0,
+      "p999_after": 7229981879.815,
+      "p999_rel_error": 0.0
+    },
+    "latency_flinke2c_td_q4_nes_8_e2c_3.parquet": {
+      "size_bytes": 418473,
+      "mtime_ns": 1788787937742358296,
+      "updated_at": "2026-09-10T07:48:29.092640+00:00",
+      "status": "kept",
+      "rows_after": 60046,
+      "bytes_after": 418473,
+      "fraction_used": 1.0,
+      "p999_after": 6467427014.735,
+      "p999_rel_error": 0.0
+    },
+    "latency_flinke2c_td_q4_nes_8_e2c_4.parquet": {
+      "size_bytes": 411347,
+      "mtime_ns": 1788787937744067141,
+      "updated_at": "2026-09-10T07:48:29.095306+00:00",
+      "status": "kept",
+      "rows_after": 60046,
+      "bytes_after": 411347,
+      "fraction_used": 1.0,
+      "p999_after": 6216628205.48,
+      "p999_rel_error": 0.0
+    }
+  }
+}

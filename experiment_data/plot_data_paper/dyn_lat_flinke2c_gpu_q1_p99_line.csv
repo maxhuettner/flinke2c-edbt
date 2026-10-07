@@ -1,0 +1,3 @@
+x,ecdf,key,label,percentile
+28.432038199999994,0.0,flinke2c_gpu_q1,FlinkE2C\\(GPU),99.0
+28.432038199999994,1.0,flinke2c_gpu_q1,FlinkE2C\\(GPU),99.0

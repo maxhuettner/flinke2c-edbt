@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "files": {
+    "latency_flinke2c_td_q5_nes_e2c_0.parquet": {
+      "size_bytes": 1150,
+      "mtime_ns": 1788351142485048813,
+      "updated_at": "2026-09-10T07:48:29.172182+00:00",
+      "status": "kept",
+      "rows_after": 5,
+      "bytes_after": 1150,
+      "fraction_used": 1.0,
+      "p999_after": 18902247899.62,
+      "p999_rel_error": 0.0
+    },
+    "latency_flinke2c_td_q5_nes_e2c_1.parquet": {
+      "size_bytes": 1149,
+      "mtime_ns": 1788351142485231602,
+      "updated_at": "2026-09-10T07:48:29.172858+00:00",
+      "status": "kept",
+      "rows_after": 5,
+      "bytes_after": 1149,
+      "fraction_used": 1.0,
+      "p999_after": 11182374154.656,
+      "p999_rel_error": 0.0
+    },
+    "latency_flinke2c_td_q5_nes_e2c_2.parquet": {
+      "size_bytes": 1149,
+      "mtime_ns": 1788351142485400392,
+      "updated_at": "2026-09-10T07:48:29.173364+00:00",
+      "status": "kept",
+      "rows_after": 5,
+      "bytes_after": 1149,
+      "fraction_used": 1.0,
+      "p999_after": 10252198818.656,
+      "p999_rel_error": 0.0
+    },
+    "latency_flinke2c_td_q5_nes_e2c_3.parquet": {
+      "size_bytes": 1150,
+      "mtime_ns": 1788351142485574098,
+      "updated_at": "2026-09-10T07:48:29.173786+00:00",
+      "status": "kept",
+      "rows_after": 5,
+      "bytes_after": 1150,
+      "fraction_used": 1.0,
+      "p999_after": 9052951401.652,
+      "p999_rel_error": 0.0
+    },
+    "latency_flinke2c_td_q5_nes_e2c_4.parquet": {
+      "size_bytes": 1149,
+      "mtime_ns": 1788351142485735763,
+      "updated_at": "2026-09-10T07:48:29.174182+00:00",
+      "status": "kept",
+      "rows_after": 5,
+      "bytes_after": 1149,
+      "fraction_used": 1.0,
+      "p999_after": 8758867758.656,
+      "p999_rel_error": 0.0
+    }
+  }
+}

@@ -1,0 +1,3 @@
+x,ecdf,key,label,percentile
+81.95290489999994,0.0,q1_direct_gpu,q1_direct_gpu,99.0
+81.95290489999994,1.0,q1_direct_gpu,q1_direct_gpu,99.0

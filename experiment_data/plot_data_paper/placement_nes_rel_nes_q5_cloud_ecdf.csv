@@ -1,0 +1,9 @@
+x,ecdf,key,label
+0.9678397024775706,0.0,nes_q5_cloud,nes_q5_cloud
+0.9678397024775706,0.25,nes_q5_cloud,nes_q5_cloud
+0.9985595930435227,0.25,nes_q5_cloud,nes_q5_cloud
+0.9985595930435227,0.5,nes_q5_cloud,nes_q5_cloud
+0.9992436157767874,0.5,nes_q5_cloud,nes_q5_cloud
+0.9992436157767874,0.75,nes_q5_cloud,nes_q5_cloud
+1.0,0.75,nes_q5_cloud,nes_q5_cloud
+1.0,1.0,nes_q5_cloud,nes_q5_cloud

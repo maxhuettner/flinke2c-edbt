@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "files": {
+    "latency_test_0.parquet": {
+      "size_bytes": 7990831,
+      "mtime_ns": 1771340890807010525,
+      "updated_at": "2026-02-17T15:08:10.809480+00:00",
+      "status": "written",
+      "rows_after": 766492,
+      "bytes_after": 7990831,
+      "fraction_used": 0.1,
+      "p999_after": 261721704.74899998,
+      "p999_rel_error": 0.00016858856039322594
+    },
+    "latency_test_1.parquet": {
+      "size_bytes": 16239561,
+      "mtime_ns": 1771340890924063825,
+      "updated_at": "2026-02-17T15:08:10.926679+00:00",
+      "status": "written",
+      "rows_after": 1532984,
+      "bytes_after": 16239561,
+      "fraction_used": 0.2,
+      "p999_after": 219726804.2,
+      "p999_rel_error": 0.0008322296533728729
+    },
+    "latency_test_2.parquet": {
+      "size_bytes": 7929671,
+      "mtime_ns": 1771340890993595188,
+      "updated_at": "2026-02-17T15:08:10.995814+00:00",
+      "status": "written",
+      "rows_after": 766492,
+      "bytes_after": 7929671,
+      "fraction_used": 0.1,
+      "p999_after": 56936026.30499982,
+      "p999_rel_error": 8.981444629341362e-05
+    },
+    "latency_test_3.parquet": {
+      "size_bytes": 8071739,
+      "mtime_ns": 1771340891061000800,
+      "updated_at": "2026-02-17T15:08:11.063143+00:00",
+      "status": "written",
+      "rows_after": 766492,
+      "bytes_after": 8071739,
+      "fraction_used": 0.1,
+      "p999_after": 145423134.80899978,
+      "p999_rel_error": 0.00020333567446989093
+    },
+    "latency_test_4.parquet": {
+      "size_bytes": 7991557,
+      "mtime_ns": 1771340891125965870,
+      "updated_at": "2026-02-17T15:08:11.128177+00:00",
+      "status": "written",
+      "rows_after": 766492,
+      "bytes_after": 7991557,
+      "fraction_used": 0.1,
+      "p999_after": 53244711.26599983,
+      "p999_rel_error": 0.0003014597682621653
+    }
+  }
+}

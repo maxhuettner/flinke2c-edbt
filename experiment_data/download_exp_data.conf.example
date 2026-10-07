@@ -1,0 +1,10 @@
+# SSH host aliases or user@host values used by rsync.
+source_host=source-host
+sink_host=sink-host
+
+# Set this to the GPU SSH host to download perf data, or false to skip it.
+gpu_host=false
+
+# Optional performance servers. Set each to a hostname or false to skip it.
+gpu_perf=false
+rdma_perf=false

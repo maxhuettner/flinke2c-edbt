@@ -1,0 +1,9 @@
+x,ecdf,key,label
+0.7444563057888591,0.0,flink_q4_nes_8_cloud,flink_q4_nes_8_cloud
+0.7444563057888591,0.25,flink_q4_nes_8_cloud,flink_q4_nes_8_cloud
+0.8190302713410319,0.25,flink_q4_nes_8_cloud,flink_q4_nes_8_cloud
+0.8190302713410319,0.5,flink_q4_nes_8_cloud,flink_q4_nes_8_cloud
+0.8597848777154502,0.5,flink_q4_nes_8_cloud,flink_q4_nes_8_cloud
+0.8597848777154502,0.75,flink_q4_nes_8_cloud,flink_q4_nes_8_cloud
+1.0,0.75,flink_q4_nes_8_cloud,flink_q4_nes_8_cloud
+1.0,1.0,flink_q4_nes_8_cloud,flink_q4_nes_8_cloud

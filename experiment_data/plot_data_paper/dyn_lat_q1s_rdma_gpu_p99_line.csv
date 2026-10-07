@@ -1,0 +1,3 @@
+x,ecdf,key,label,percentile
+37.07965400999998,0.0,q1s_rdma_gpu,q1s_rdma_gpu,99.0
+37.07965400999998,1.0,q1s_rdma_gpu,q1s_rdma_gpu,99.0
