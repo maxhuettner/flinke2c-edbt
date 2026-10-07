@@ -11,3 +11,6 @@
 [submodule "network_sim"]
 	path = network_sim
 	url = git@github.com:maxhuettner/network_sim.git
+[submodule "flinke2c_runtime"]
+	path = flinke2c_runtime
+	url = git@github.com:maxhuettner/flinke2c-runtime.git
